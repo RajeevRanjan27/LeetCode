@@ -24,7 +24,7 @@ class Solution {
             }
             if(currstr.isEmpty())
             {
-                currstr +=String.valueOf(i);
+                currstr =String.valueOf(i);
             }
             
             l1.add(currstr);
