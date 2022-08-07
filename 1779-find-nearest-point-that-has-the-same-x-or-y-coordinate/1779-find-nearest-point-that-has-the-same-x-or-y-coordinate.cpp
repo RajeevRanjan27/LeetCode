@@ -3,7 +3,7 @@ public:
     int nearestValidPoint(int x, int y, vector<vector<int>>& points) {
         
         int n=points.size();
-        int index=-1,ans=INT_MAX,ind=-1,temp=-1;
+        int index=-1,ans=INT_MAX;//temp=-1;
         for(int i=0;i<n;i++)
         {
             
