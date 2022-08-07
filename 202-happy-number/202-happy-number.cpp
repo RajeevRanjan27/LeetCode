@@ -7,7 +7,7 @@ public:
         while(sum!=1 || sum!=89){
        while(n)
        {
-           cout<<sum<<endl;
+       //    cout<<sum<<endl;
             sum+=(n%10)*(n%10);
             n/=10;
        }
