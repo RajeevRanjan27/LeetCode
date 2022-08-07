@@ -12,14 +12,17 @@ public:
             { // int a=abs(points[i][0]-x),b=abs(points[i][1]-y);
                // ans=min(ans,a+b);
                // if(ans>=a+b)
-                temp=abs(points[i][0]-x)+abs(points[i][1]-y);
+               // temp=abs(points[i][0]-x)+abs(points[i][1]-y);
                  //ans=temp;
                  // ind=i;
-                if(temp<ans)
+              //  if(temp<ans)
+                
+                if(abs(points[i][0]-x)+abs(points[i][1]-y)<ans)
                   //  ans=a+b;
                   //if(ans!=abs(points[i][0]-x)+abs(points[i][1]-y))
                 {  //cout<<ans<<endl;
-                     ans=temp;
+                     //ans=temp;
+                    ans=abs(points[i][0]-x)+abs(points[i][1]-y);
                      //  cout<<i<<endl;
                         index=i;
                       //  cout<<index<<"\n";
