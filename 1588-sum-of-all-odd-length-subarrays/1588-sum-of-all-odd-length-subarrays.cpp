@@ -8,7 +8,7 @@ public:
         {
             
             
-            sum+=(ceil)((i+1)*(arr.size()-i)/2.0)*arr[i];
+            sum+=(((i+1)*(arr.size()-i)+1)/2)*arr[i];
             
             
         }
