@@ -21,16 +21,24 @@ public:
 //         }
 //          return ans;
         
-        int x=0;
-        for(int i=0;i<t.length();i++)
-        {
-            x+=t[i];
-        }
-        for(int j=0;j<s.length();j++)
-        {
-            x-=s[j];
-        }
-        return (char)x;
+        
+        
+        
+        // int x=0;
+        // for(int i=0;i<t.length();i++)
+        // {
+        //     x+=t[i];
+        // }
+        // for(int j=0;j<s.length();j++)
+        // {
+        //     x-=s[j];
+        // }
+        // return (char)x;
+        
+        char c=0;
+        for(char cs:s)c^=cs;
+        for(char ct:t)c^=ct;
+        return c;
         
         
         
