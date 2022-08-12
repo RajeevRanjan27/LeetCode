@@ -12,7 +12,7 @@ public:
             }
            else
            {
-               if(command[i]=='(' && command[i+1]==')')
+               if(command[i+1]==')')
                { ans+='o';
                    i+=2;
                }
