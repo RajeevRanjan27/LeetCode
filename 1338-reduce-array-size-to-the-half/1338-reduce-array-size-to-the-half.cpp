@@ -18,10 +18,10 @@ public:
         {
             freq[x.second]++;
         }
-        for(auto y: freq)
-        {
-            cout<<y<<" ";
-        }      
+        // for(auto y: freq)
+        // {
+        //     cout<<y<<" ";
+        // }      
         
         int rem=arr.size()/2;
         int i=freq.size()-1;
