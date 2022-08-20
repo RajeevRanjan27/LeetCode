@@ -20,7 +20,7 @@ public:
             }
         }
         ans.push_back(res);
-        start=0,end=nums.size()-1,res=-1;
+        end=nums.size()-1;
         while(start<=end)
         {
             int mid=start+(end-start)/2;
