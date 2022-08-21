@@ -20,33 +20,21 @@ public:
 
 class Solution {
 public:
-    vector<vector<int>> levelOrder(Node* root) {
-       vector<vector<int>>res;
-        
-        if(root==NULL)return res;
-        
-        queue<Node*>q;
-        q.push(root);
-        while(!q.empty())
+    
+    void post(Node *root,vector<int>&v)
+    {
+        if(root==NULL)return;
+        for(auto child:root->children)
         {
-            int sz=q.size();
-            vector<int>level;
-            for(int i=0;i<sz;i++)
-            {
-                Node * node=q.front();
-                q.pop();
-                level.push_back(node->val);
-                for(auto child:node->children)
-                {
-                    q.push(child);
-                }
-                
-                
-            }
-            res.push_back(level);
-            
+            post(child,v);
+            // v.push_back()
         }
-        return res;
+        v.push_back(root->val);
+    }
+    vector<int> postorder(Node* root) {
+        vector<int>v;
+        post(root,v);
+        return v;
         
     }
 };
