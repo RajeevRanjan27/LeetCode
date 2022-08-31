@@ -18,9 +18,7 @@ public:
         int a =helper (root->left);
         int b =helper (root->right);
         int sum= INT_MIN;
-        sum=max(a+root->val,b+root->val);
-        sum=max(sum,a+b+root->val);
-        sum=max(sum,root->val);
+        sum=max({a+root->val,b+root->val,a+b+root->val,root->val});
         ans=max(ans,sum);
         return max({root->val+a,b+root->val,root->val});
     }
