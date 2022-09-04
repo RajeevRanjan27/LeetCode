@@ -21,45 +21,35 @@ public:
     //     }
     // }
     vector<vector<int>> verticalTraversal(TreeNode* root) {
+        //map<int,vector<int>> mp;
+        //column -> (nodes)
         
-         map<int,map<int,multiset<int>>>nodes;
-    queue<pair<TreeNode*,pair<int ,int>>>todo;
-        todo.push({root,{0,0}});
-        while(!todo.empty())
-        {
-            
-            auto p=todo.front();
-            todo.pop();
-            
-            TreeNode *node=p.first;
-            
-            int vertical=p.second.first,level=p.second.second;
-            nodes[vertical][level].insert(node->val);
-            
-            if(node->left)
-            {
-                todo.push({node->left,{vertical-1,level+1}});
+        map<int,vector<int>> mp;
+        queue<pair<TreeNode*,int>> q;
+        q.push({root,0});
+        while(!q.empty()){
+            int sz=q.size();
+            map<int,vector<int>> freq;
+            while(sz-->0){
+                auto temp=q.front();
+                q.pop();
+                TreeNode* node=temp.first;
+                int col=temp.second;
+                freq[col].push_back(node->val);
+                if(node->left) q.push({node->left,col-1});
+                if(node->right) q.push({node->right,col+1});
             }
-            if(node->right)
-            {
-                todo.push({node->right,{vertical+1,level+1}});
-                
-            }
+            for(auto &[key,val]:freq){
+                sort(val.begin(),val.end());
+                for(auto i:val){
+                    mp[key].push_back(i);
+                }
+            } 
         }
-        vector<vector<int>>ans;
-        for(auto p:nodes)
-        {
-            vector<int>col;
-            for(auto q:p.second)
-            {
-                col.insert(col.end(),q.second.begin(),q.second.end());
-               // col.push_back(q.second);
-            }
-            ans.push_back(col);
+        vector<vector<int>>  ans;
+        for(auto &[key,val]:mp){
+            ans.push_back(val);
         }
         return ans;
-        
-        
-        
     }
 };
