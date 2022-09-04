@@ -10,7 +10,10 @@ public:
             }
         return count;
         */
-        return ((high-low)/2)+(low%2 ||high%2);
+        // return ((high-low)/2)+(low%2 ||high%2);
+        
+        
+        return ((high-low)/2)+(low%2 || high%2);
         
     }
 };
