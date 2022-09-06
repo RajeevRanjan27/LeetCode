@@ -13,8 +13,8 @@ public:
         
         
         
-        bitset<32>ans(n);
-        return ans.count();
+//         bitset<32>ans(n);
+//         return ans.count();
         
         
         
@@ -28,6 +28,14 @@ public:
            
 //         }
        // return count;
+        int count=0;
+        while(n!=0)
+        {
+            n&=n-1;
+            count++;
+        }
+        return count;
+        
         
     }
 };
