@@ -27,7 +27,7 @@ public:
 //         }
 //         return (count%2)?-1:1;
         
-        // sort(nums.begin(),nums.end());
+        
         int counter=0;
         bool flag=false;
         
@@ -40,17 +40,15 @@ public:
            }
            if(nums[i]==0)
            {
-               flag=true;
-               break;
+               // flag=true;
+               // break;
+               return 0;
            }
           
            
        }
         
-        if(flag)
-        {
-            return 0;
-        }
+       
         return counter%2? -1:1;
     
     }
