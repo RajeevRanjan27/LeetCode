@@ -27,21 +27,23 @@ public:
 //         }
 //         return (count%2)?-1:1;
         
-        sort(nums.begin(),nums.end());
+        // sort(nums.begin(),nums.end());
         int counter=0;
         bool flag=false;
         
        for(int i=0;i<n;i++)
        {
-           if(nums[i]>0)
+           if(nums[i]<0)
            {
-               break;
+                counter++;
+               continue;
            }
            if(nums[i]==0)
-           { flag=true;
+           {
+               flag=true;
                break;
            }
-           counter++;
+          
            
        }
         
