@@ -20,25 +20,38 @@ public:
 
 class Solution {
 public:
-    vector<int> preorder(Node* root) {
+   
+  vector<int> preorder(Node* root) {
         
-        vector<int>ans;
-        // if()
-        //     return ans;
-        // ans.push_back(root->val);
-        //     preorder(&root->children);
-        //     preorder(root->right);
-        preTraversal(root,ans);
-        return ans;
+//         vector<int>ans;
+//         preTraversal(root,ans);
+//         return ans;
+         
+//     }
+//      void preTraversal(Node *root,vector<int>&ans)
+//      {
+//         if(root==NULL)return;   //base condition
+//         ans.push_back(root-> val);
+//         for(auto &child:root->children)preTraversal(child,ans);
+        
+//     }
         
         
-        
-    }
-    void preTraversal(Node *root,vector<int>&ans)
+       vector<int>ans;
+      preorder(root,ans);
+      return ans;
+  } 
+    
+    void preorder(Node * root,vector<int>&ans)
     {
-        if(root==NULL)return;   //base condition
-        ans.push_back(root-> val);
-        for(auto &child:root->children)preTraversal(child,ans);
-        
+         
+        if(root==NULL)return ;
+       ans.push_back(root->val);
+       
+      for(auto &child:root->children)
+      {
+         preorder(child,ans); 
+      }
     }
+   
 };
