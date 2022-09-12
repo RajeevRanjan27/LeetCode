@@ -59,21 +59,21 @@ public:
     
     
      vector<int> postorderTraversal(TreeNode* root) {
-         vector<int>post;
-         if(root==NULL)return post;
-         stack<TreeNode *>s;
-         s.push(root);
-         while(!s.empty())
-         {
-             TreeNode* node=s.top();
-             s.pop();
-             post.push_back(node->val);
-             if(node->left)s.push(node->left);
-             if(node->right)s.push(node->right);
-             
-         }
-         reverse(post.begin(),post.end());
-         return post;
+        vector<int>ans;
+         if(root==NULL)return ans;
+         stack<TreeNode*>st;
+         st.push(root);
+             while(st.size())
+             {
+                 TreeNode* node =st.top();
+                 st.pop();
+                 ans.push_back(node->val);
+                 if(node->left)st.push(node->left);
+                 if(node->right)st.push(node->right);
+                 
+             }
+         reverse(ans.begin(),ans.end());
+         return ans;
         
         
         
