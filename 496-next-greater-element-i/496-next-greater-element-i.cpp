@@ -30,24 +30,23 @@ public:
 //         }
 //         return ans;
         
-    vector<int>ans;
-        for(int i=0;i<nums1.size();i++)
+    stack<int>s;
+        vector<int>ans;
+        
+        unordered_map<int,int>m;
+        for(auto n:nums2)
         {
-            for(int j=0;j<nums2.size();j++)
+            while(s.size()&&s.top()<n)
             {
-                if(nums1[i]==nums2[j])
-                {
-                    int mx=-1;
-                    for(int k=j+1;k<nums2.size();k++)
-                    {
-                        if(nums2[k]>nums1[i])
-                        {   mx=nums2[k];
-                            break;
-                        }
-                    }
-                    ans.push_back(mx);
-                }
+                m[s.top()]=n;
+                s.pop();
+                
             }
+            s.push(n);
+        }
+        for(auto n:nums1)
+        {
+            ans.push_back(m.count(n)?m[n]:-1);
         }
         return ans;
     }
