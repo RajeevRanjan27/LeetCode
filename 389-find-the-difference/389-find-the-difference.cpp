@@ -35,9 +35,9 @@ public:
         // }
         // return (char)x;
         
-        char c=0;
-        for(char cs:s)c^=cs;
-        for(char ct:t)c^=ct;
+      char c=0;
+        for(auto &cs:s)c^=cs;
+        for(auto &ct:t)c^=ct;
         return c;
         
         
