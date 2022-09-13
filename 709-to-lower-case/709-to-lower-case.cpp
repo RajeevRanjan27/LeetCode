@@ -2,14 +2,11 @@ class Solution {
 public:
     string toLowerCase(string s) {
         
-        for(int i=0;i<s.size();i++)
-        {
-            if((s[i]-0)<=90 && (s[i]-0)>=65)
-            {
-                s[i]=(char)s[i]+32;
-            }
-        }
+       for(auto &ch: s)
+       {
+           if((ch-0)>=65 and (ch-0)<=90) ch=ch+32;
+              
+       }
         return s;
-        
     }
 };
