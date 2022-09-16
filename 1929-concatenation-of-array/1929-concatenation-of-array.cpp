@@ -7,8 +7,8 @@ public:
         vector<int>ans;
         
         
-        ans.insert(ans.begin(),nums.begin(),nums.end());
-      ans.insert(ans.begin(),nums.begin(),nums.end());
+        ans.insert(ans.end(),nums.begin(),nums.end());
+      ans.insert(ans.end(),nums.begin(),nums.end());
         
         
         return ans;
