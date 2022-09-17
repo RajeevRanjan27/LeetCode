@@ -97,15 +97,54 @@ public:
         
     int trap(vector<int>& height) {
         int n=height.size();
-        vector<int>ngl;
-        vector<int>ngr;
-        nextgreaterleft(height,ngl);
-        nextgreaterright(height,ngr);
+//         vector<int>ngl;
+//         vector<int>ngr;
+//         nextgreaterleft(height,ngl);
+//         nextgreaterright(height,ngr);
+//         int ans=0;
+//         for(int i=0;i<n;i++)
+//         {
+//             int temp=min(ngl[i],ngr[i])-height[i];
+//             ans+=temp>0?temp:0;
+            
+            
+//         }
+//         return ans;
+        
+        
+        int left_max=INT_MIN,right_max=INT_MIN;
+        int left=0,right=n-1;
         int ans=0;
-        for(int i=0;i<n;i++)
+        while(left<right)
         {
-            int temp=min(ngl[i],ngr[i])-height[i];
-            ans+=temp>0?temp:0;
+            if(height[left]<height[right])
+            {
+                if(height[left]>left_max)
+                {
+                    left_max=height[left];
+                }
+                
+                else
+                {
+                    ans+=left_max-height[left];
+                }
+                left++;
+            }
+            else
+            {
+                if(height[right]>right_max)
+                {
+                    right_max=height[right];
+                    
+                }
+                else
+                {
+                    ans+=right_max-height[right];
+                }
+                right--;
+                
+            }
+            
             
             
         }
