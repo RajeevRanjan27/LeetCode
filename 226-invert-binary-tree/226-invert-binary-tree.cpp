@@ -12,7 +12,7 @@
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
-    std::stack<TreeNode*> stk;
+    stack<TreeNode*> stk;
     stk.push(root);
     
     while (!stk.empty()) {
@@ -21,7 +21,7 @@ public:
         if (p) {
             stk.push(p->left);
             stk.push(p->right);
-            std::swap(p->left, p->right);
+            swap(p->left, p->right);
         }
     }
     return root;
