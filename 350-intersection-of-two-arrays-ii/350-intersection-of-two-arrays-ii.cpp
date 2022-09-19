@@ -5,25 +5,18 @@ public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) 
     
     {
-        //firr se krna h sirr
+        unordered_map<int,int>mp;
+        vector<int>ans;
+      for(auto x:nums1)mp[x]++;
         
-        sort(nums1.begin(), nums1.end());
-        sort(nums2.begin(), nums2.end());
-        int i = 0, j = 0;
-        vector<int> res;
-        while(i < nums1.size() && j < nums2.size()){
-            if(nums1[i] == nums2[j]){
-                res.push_back(nums1[i]);
-                i++;
-				j++;
-            }
-            else if(nums1[i] < nums2[j]){
-                i++;
-            }
-            else if(nums1[i] > nums2[j]){
-                j++;
-            }
-        }
-        return res;
+       for(auto y:nums2)
+       {
+           if(mp[y]>0)
+           {ans.push_back(y);}
+           mp[y]--;
+            
+               
+       }  
+        return ans;
     }
 };
