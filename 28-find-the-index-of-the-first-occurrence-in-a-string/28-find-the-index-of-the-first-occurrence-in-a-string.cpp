@@ -41,7 +41,7 @@ public:
         {
             
             
-            str=str.substr(1,n-1);
+            str=str.substr(1);
             cout << str << endl;
             i++;
             str+=haystack[j];
