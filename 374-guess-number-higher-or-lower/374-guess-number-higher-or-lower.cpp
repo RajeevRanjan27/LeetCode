@@ -13,7 +13,7 @@ public:
     long long numbercheck(long long low,long long high)
     {
         long long mid=low+((high-low)/2);
-        if(low>high) return -1;
+        //if(low>high) return -1;
         if(guess(mid)==0)return mid;
         else if (guess(mid)==-1) return numbercheck(low,mid-1);
         else return numbercheck(mid+1,high);
