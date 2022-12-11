@@ -11,49 +11,62 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-//       if(head==NULL||head->next==NULL)return head;
         
         
-//         ListNode *p=head->next,*q=head;
-//         int prev=q->val;
-//         while(p)
-//         {
-//             if(p->val!=prev)
-//             {
-//                 q->next=p;
-//                // p=p->next;
-//                 q=q->next;
-//                 prev=p->val;
+        //method 1
+    // using two pointers and one prev value counter, keep traversing until u meet the diiferent val of p node from prev val
+        
+        
+        
+if(head==NULL ||head->next==NULL)return head;
+       ListNode *p=head, *q=head->next;
+        int prev=p->val;
+        
+        
+        while(q)
+        {
+            if(q->val!=prev)
+            {
+                p->next=q;
+                p=p->next;
+                prev=q->val;
                 
-//             }
-//             p=p->next;
+            }
             
-//         }
-//         q->next=NULL;
-//         return head;
-        
-        if(head==NULL)return head;
-        
-        ListNode *temp=head;
-        ListNode *res=new ListNode(temp->val);
-        ListNode *last=res;
-        temp=temp->next;
+            q=q->next;
+        }
+        p->next=NULL;
+        return head;
         
         
-        while(temp){
+        //method2
+        //by using another list and keep adding them if they  are different otherwise skip it
+        
+        
+//         if(head==NULL)return head;
+        
+//         ListNode *temp=head;
+//         ListNode *res=new ListNode(temp->val);
+//         ListNode *last=res;
+//         temp=temp->next;
+        
+        
+//         while(temp){
               
-         if(temp->val!=last->val)
+//          if(temp->val!=last->val)
             
-         {
-             last->next=new ListNode(temp->val);
-             last=last->next;
-         }
+//          {
+//              last->next=new ListNode(temp->val);
+//              last=last->next;
+//          }
             
-            temp=temp->next;  
+//             temp=temp->next;  
        
-        }   
+//         }   
         
-        return res;
+//         return res;
+        
+        
         
         
     }
