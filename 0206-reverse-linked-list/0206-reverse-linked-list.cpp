@@ -10,74 +10,23 @@
  */
 class Solution {
 public:
-//      ListNode* getNodeat(int idx,ListNode* head)
-//         {
-//             ListNode* t=head;
-//             for(int i=0;i<idx && t;i++)
-//             {
-//                 t=t->next;
-                
-//             }
-//             return t;
-            
-//         }
+
     ListNode* reverseList(ListNode* head) {
-   
-//         ListNode* l1=head;
+
         
+        if(head==NULL||head->next==NULL)return head;
+        ListNode *prev=NULL,*fwd=NULL;
+        ListNode *curr=head;
         
-//         int ri=0;
-//         int li=0;
-//         int s=0;
-        
-        
-//         while(l1)
-//         {
-//             s++;
-//             l1=l1->next;
-            
-//         }
-//         ri=s-1;
-        
-           
-        
-//         while(li<ri)
-//         {
-    
-//        ListNode* left=getNodeat(li,head);
-//        ListNode* right=getNodeat(ri,head);
-            
-//         int temp=left->val;
-//             left->val=right->val;
-//             right->val=temp;
-            
-//             li++;
-//             ri--;
-            
-//         }
-        
-//         return head;
-        
-     
-        
-        ListNode* curr=head;
-        ListNode* prev=nullptr ;
-        
-         
-        while(curr)
-        {
-            
-            ListNode *temp=curr->next;
-            
-            curr->next=prev;
-            prev=curr;
-            curr=temp;
-            // cout<<curr<<"  "<<prev<<"  ";
-            
+     while(curr)
+        { 
+        fwd=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=fwd;
         }
-         // curr->next=prev;
+        return prev;
         
-        return prev;        
         
         
     }
