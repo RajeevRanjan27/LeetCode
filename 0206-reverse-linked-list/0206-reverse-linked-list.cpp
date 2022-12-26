@@ -13,21 +13,18 @@ public:
 
     ListNode* reverseList(ListNode* head) {
 
+      ListNode *prev=NULL,*curr=head;
         
-        if(head==NULL||head->next==NULL)return head;   //handelling corner cases;
-        ListNode *prev=NULL,*fwd=NULL;
-        ListNode *curr=head;
+      while(curr!=NULL)
+       {   
+        ListNode *temp=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=temp;
         
-     while(curr)
-        { 
-        fwd=curr->next; //backup
-        curr->next=prev; //creating link
-        prev=curr;   //moving ptrs
-        curr=fwd;     //moving ptrs
         }
+        
         return prev;
-        
-        
         
     }
 };
