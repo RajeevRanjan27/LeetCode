@@ -17,7 +17,7 @@ public:
             else if(sum>=target)
             {
                 
-                while(sum>=target )
+                while(sum>=target &&i<=j )
                 {
                     ans=min(ans,j-i+1);
                     sum-=nums[i++];
