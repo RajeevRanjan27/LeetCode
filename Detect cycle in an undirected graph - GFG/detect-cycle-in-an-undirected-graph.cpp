@@ -23,6 +23,36 @@ class Solution {
         return false;
         
     }
+    
+    
+    
+    bool iscyclebfs(int src, vector<int>adj[], unordered_map<int,bool>&vis){
+        unordered_map<int,int>parent;
+        
+        
+            parent[src]=-1;
+            queue<int>q;
+            q.push(src);
+            vis[src]=true;
+            
+            while(!q.empty()){
+                int front= q.front();
+                q.pop();
+                
+                
+                for(auto it: adj[front]){
+                    if(vis[it]&& it!=parent[front])return true;
+                    
+                    else if(!vis[it]){
+                        vis[it]=true;
+                        q.push(it);
+                        parent[it]=front;
+                    }
+                }
+            }
+            return false;
+            
+    }
     bool isCycle(int V, vector<int> adj[]) {
         
         
@@ -32,7 +62,8 @@ class Solution {
         for(int i=0;i<V;i++){
             
             if(!vis[i]){
-                if(iscycledfs(i,-1,adj,vis))return true;
+                // if(iscycledfs(i,-1,adj,vis))return true;
+                if(iscyclebfs(i,adj,vis))return true;
             }
         }
         
